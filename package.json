@@ -1,0 +1,22 @@
+{
+  "name": "nail-art-studio",
+  "version": "1.0.0",
+  "description": "A beautiful website for displaying nail art and handling appointment bookings",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=/index.html",
+    "dev": "live-server --port=3000 --open=/index.html"
+  },
+  "keywords": [
+    "nail-art",
+    "booking",
+    "website",
+    "salon"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
+
