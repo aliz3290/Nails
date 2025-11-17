@@ -34,6 +34,12 @@ build/
 .env.local
 .env.*.local
 
+# Booking data
+bookings.json
+
+# Node modules (already there but ensuring)
+node_modules/
+
 # Logs
 logs/
 *.log

@@ -1,27 +1,48 @@
-// Booking Form Handler
+// Booking Form Handler with Stripe Integration
 document.addEventListener('DOMContentLoaded', function() {
     const bookingForm = document.getElementById('bookingForm');
     const bookingMessage = document.getElementById('bookingMessage');
     const dateInput = document.getElementById('date');
+    const submitBtn = document.getElementById('submit-btn');
 
-    // Set minimum date to today
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.setAttribute('min', today);
+    // Date validation will be handled by calendar popup
 
-    // Mobile Navigation Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+    // Initialize Stripe
+    // IMPORTANT: Replace 'pk_test_51...' with your actual Stripe publishable key
+    // Get it from https://dashboard.stripe.com/apikeys
+    const STRIPE_PUBLISHABLE_KEY = 'pk_test_51...'; // TODO: Add your Stripe publishable key here
+    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    const elements = stripe.elements();
+    
+    let cardElement;
+    if (document.getElementById('card-element')) {
+        cardElement = elements.create('card', {
+            style: {
+                base: {
+                    color: '#ffffff',
+                    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                    fontSize: '16px',
+                    '::placeholder': {
+                        color: 'rgba(255, 255, 255, 0.5)',
+                    },
+                },
+                invalid: {
+                    color: '#ff0000',
+                },
+            },
         });
+        cardElement.mount('#card-element');
 
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
+        // Handle real-time validation errors
+        cardElement.on('change', function(event) {
+            const displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+                displayError.style.display = 'block';
+            } else {
+                displayError.textContent = '';
+                displayError.style.display = 'none';
+            }
         });
     }
 
@@ -41,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form submission handler
     if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
+        bookingForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             // Get form data
@@ -60,8 +81,92 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulate form submission (replace with actual API call later)
-            submitBooking(formData);
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'PROCESSING...';
+
+            try {
+                // Create payment intent on backend
+                const response = await fetch('http://localhost:3001/api/create-payment-intent', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: 2500, // $25.00 in cents
+                        bookingData: formData
+                    })
+                });
+
+                const { clientSecret, error: backendError } = await response.json();
+
+                if (backendError) {
+                    showMessage(backendError.message, 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'PAY DEPOSIT & BOOK APPOINTMENT';
+                    return;
+                }
+
+                // Confirm payment with Stripe
+                const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: {
+                            name: formData.name,
+                            email: formData.email,
+                            phone: formData.phone,
+                        },
+                    },
+                });
+
+                if (stripeError) {
+                    showMessage(stripeError.message, 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'PAY DEPOSIT & BOOK APPOINTMENT';
+                    return;
+                }
+
+                // Payment successful - save booking
+                if (paymentIntent.status === 'succeeded') {
+                    const bookingResponse = await fetch('http://localhost:3001/api/save-booking', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            ...formData,
+                            paymentIntentId: paymentIntent.id,
+                            depositPaid: true,
+                            status: 'confirmed'
+                        })
+                    });
+
+                    const bookingResult = await bookingResponse.json();
+
+                    if (bookingResult.success) {
+                        showMessage(
+                            `Thank you, ${formData.name}! Your deposit has been paid and your appointment is confirmed for ${formData.date} at ${formData.time}.`,
+                            'success'
+                        );
+
+                        // Reset form
+                        bookingForm.reset();
+                        cardElement.clear();
+                        if (dateInput) {
+                            dateInput.setAttribute('min', today);
+                        }
+                    } else {
+                        showMessage('Booking saved but there was an issue. Please contact us.', 'error');
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('An error occurred. Please try again or contact us directly.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'PAY DEPOSIT & BOOK APPOINTMENT';
+            }
         });
     }
 
@@ -99,55 +204,22 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Submit booking (simulated - replace with actual API call)
-    function submitBooking(data) {
-        // Show loading state
-        const submitButton = bookingForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Submitting...';
-        submitButton.disabled = true;
+    // Show message function
+    function showMessage(message, type) {
+        if (bookingMessage) {
+            bookingMessage.textContent = message;
+            bookingMessage.className = `booking-message ${type}`;
+            bookingMessage.style.display = 'block';
 
-        // Simulate API call delay
-        setTimeout(() => {
-            // In a real application, you would send this data to a backend API
-            console.log('Booking submitted:', data);
-
-            // For now, we'll just show a success message
-            // In production, you would:
-            // 1. Send data to your backend API
-            // 2. Handle the response
-            // 3. Show appropriate success/error messages
-
-            showMessage(
-                `Thank you, ${data.name}! Your booking request has been submitted. We'll contact you soon to confirm your appointment.`,
-                'success'
-            );
-
-            // Reset form
-            bookingForm.reset();
-            dateInput.setAttribute('min', today);
-
-            // Reset button
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
+            // Auto-hide success messages after 8 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    bookingMessage.style.display = 'none';
+                }, 8000);
+            }
 
             // Scroll to message
             bookingMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 1000);
-    }
-
-    // Show message function
-    function showMessage(message, type) {
-        bookingMessage.textContent = message;
-        bookingMessage.className = `booking-message ${type}`;
-        bookingMessage.style.display = 'block';
-
-        // Auto-hide success messages after 5 seconds
-        if (type === 'success') {
-            setTimeout(() => {
-                bookingMessage.style.display = 'none';
-            }, 5000);
         }
     }
 });
-

@@ -7,69 +7,83 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">💅 Nail Art Studio</div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#booking">Book Now</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+    <!-- Splash Screen -->
+    <div id="splashScreen" class="splash-screen">
+        <video id="splashVideo" class="splash-video" autoplay loop muted playsinline>
+            <source src="From KlickPin CF 2000s y2k flip phone aesthetic in 2025 | Graphic design tutorials learning Graphic design fun Retro phone.mp4" type="video/mp4">
+        </video>
+        <div class="nails-by-elyanna" id="nailsByElyanna">Nails by elyanna</div>
+        <button id="enterBtn" class="enter-btn">ENTER NOW</button>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Beautiful Nails, Beautiful You</h1>
-            <p>Transform your nails into works of art</p>
-            <a href="#booking" class="btn btn-primary">Book Appointment</a>
-        </div>
-    </section>
+    <!-- Main Content (hidden initially) -->
+    <div id="mainContent" class="main-content hidden">
+        <!-- Welcome Section -->
+        <section id="home" class="welcome-section">
+            <div class="welcome-header">
+                <h1 class="welcome-title">WELCOME TO</h1>
+                <h2 class="brand-title">NAILS BY ELYANNA</h2>
+                <div class="star-bg"></div>
+            </div>
+            <button class="get-to-know-btn">GET TO KNOW ME:</button>
+            <div class="intro-box">
+                <p>Hi! I'm Elyanna, a passionate nail artist dedicated to transforming your nails into stunning works of art. With years of experience and a keen eye for detail, I specialize in creating unique, personalized nail designs that reflect your style and personality.</p>
+            </div>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💅</div>
-                    <h3>Manicure</h3>
-                    <p>Classic and gel manicures with nail art options</p>
+        <!-- Services & Pricing Section -->
+        <section id="services" class="services-section">
+            <h2 class="section-title">STYLING SERVICES & PRICING:</h2>
+            
+            <div class="service-box">
+                <h3 class="service-box-title">MANICURE SERVICES:</h3>
+                <p class="service-description">Professional nail care with classic and gel options, personalized to your style and occasion.</p>
+                <div class="pricing-grid">
+                    <div class="pricing-item">
+                        <span class="pricing-label">Classic Manicure</span>
+                        <span class="pricing-price">$35</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span class="pricing-label">Gel Manicure</span>
+                        <span class="pricing-price">$50</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span class="pricing-label">Nail Art Design</span>
+                        <span class="pricing-price">$65+</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span class="pricing-label">Full Set (Manicure + Pedicure)</span>
+                        <span class="pricing-price">$85</span>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🦶</div>
-                    <h3>Pedicure</h3>
-                    <p>Relaxing pedicures with foot care and massage</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>Nail Art</h3>
-                    <p>Custom designs and intricate nail art creations</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💎</div>
-                    <h3>Gel Extensions</h3>
-                    <p>Long-lasting gel extensions and overlays</p>
+                <p class="rush-fee">Rush fee: $25 for 2-3 day turnaround</p>
+            </div>
+
+            <div class="service-box">
+                <h3 class="service-box-title">GEL EXTENSIONS:</h3>
+                <p class="service-description">Long-lasting gel extensions and overlays for the perfect length and shape.</p>
+                <div class="pricing-single">
+                    <span class="pricing-label">Starting at</span>
+                    <span class="pricing-price-large">$75+</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2>Our Work</h2>
+            <div class="service-box featured">
+                <h3 class="service-box-title">COMPLETE NAIL TRANSFORMATION!</h3>
+                <p class="service-description">Full nail makeover experience including consultation, design, and personalized nail art creation.</p>
+                <div class="pricing-single">
+                    <span class="pricing-label">Starting at</span>
+                    <span class="pricing-price-large">$150+</span>
+                </div>
+                <p class="payment-note">Payment plans available</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <h2 class="section-title">OUR WORK</h2>
             <p class="section-subtitle">Browse our stunning nail art creations</p>
             <div class="gallery-grid" id="galleryGrid">
-                <!-- Gallery items will be dynamically added by JavaScript -->
                 <div class="gallery-item">
                     <div class="gallery-placeholder">
                         <span>📸</span>
@@ -77,14 +91,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Booking Section -->
-    <section id="booking" class="booking">
-        <div class="container">
-            <h2>Book Your Appointment</h2>
-            <p class="section-subtitle">Fill out the form below to schedule your visit</p>
+        <!-- Booking Section -->
+        <section id="booking" class="booking-section">
+            <h2 class="section-title">BOOK YOUR APPOINTMENT</h2>
             <form id="bookingForm" class="booking-form">
                 <div class="form-group">
                     <label for="name">Full Name *</label>
@@ -102,16 +113,18 @@
                     <label for="service">Service Type *</label>
                     <select id="service" name="service" required>
                         <option value="">Select a service</option>
-                        <option value="manicure">Manicure</option>
-                        <option value="pedicure">Pedicure</option>
-                        <option value="nail-art">Nail Art</option>
-                        <option value="gel-extensions">Gel Extensions</option>
-                        <option value="full-set">Full Set (Manicure + Pedicure)</option>
+                        <option value="classic-manicure">Classic Manicure - $35</option>
+                        <option value="gel-manicure">Gel Manicure - $50</option>
+                        <option value="nail-art">Nail Art Design - $65+</option>
+                        <option value="gel-extensions">Gel Extensions - $75+</option>
+                        <option value="full-set">Full Set (Manicure + Pedicure) - $85</option>
+                        <option value="transformation">Complete Nail Transformation - $150+</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="date">Preferred Date *</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="text" id="date" name="date" placeholder="Click to select date" readonly required>
+                    <button type="button" class="calendar-trigger-btn" id="calendar-trigger">📅 Select Date</button>
                 </div>
                 <div class="form-group">
                     <label for="time">Preferred Time *</label>
@@ -132,20 +145,53 @@
                     <label for="message">Additional Notes</label>
                     <textarea id="message" name="message" rows="4" placeholder="Any special requests or notes..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-large">Submit Booking</button>
+                <div class="form-group">
+                    <label>Deposit Required *</label>
+                    <div class="deposit-info">
+                        <p class="deposit-amount">$25 deposit required to secure your appointment</p>
+                    </div>
+                </div>
+                <div id="card-element" class="card-element">
+                    <!-- Stripe Elements will create form elements here -->
+                </div>
+                <div id="card-errors" class="card-errors" role="alert"></div>
+                <button type="submit" class="btn-submit" id="submit-btn">PAY DEPOSIT & BOOK APPOINTMENT</button>
             </form>
             <div id="bookingMessage" class="booking-message"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Nail Art Studio. All rights reserved.</p>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Nails by Elyanna. All rights reserved.</p>
+        </footer>
+    </div>
 
+    <!-- Calendar Popup Modal -->
+    <div id="calendar-modal" class="calendar-modal">
+        <div class="calendar-modal-content">
+            <div class="calendar-modal-header">
+                <h2>Select Appointment Date</h2>
+                <button class="calendar-close-btn" id="calendar-close">&times;</button>
+            </div>
+            <div class="calendar-popup-controls">
+                <button class="calendar-nav-btn" id="prev-month-btn">←</button>
+                <h3 id="calendar-month-year"></h3>
+                <button class="calendar-nav-btn" id="next-month-btn">→</button>
+            </div>
+            <div class="calendar-popup-grid" id="calendar-popup-grid">
+                <!-- Calendar will be generated by JavaScript -->
+            </div>
+            <div class="calendar-popup-footer">
+                <button class="calendar-cancel-btn" id="calendar-cancel">Cancel</button>
+                <button class="calendar-confirm-btn" id="calendar-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/splash.js"></script>
     <script src="js/gallery.js"></script>
+    <script src="js/calendar-popup.js"></script>
     <script src="js/booking.js"></script>
 </body>
 </html>
