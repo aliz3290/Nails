@@ -45,6 +45,15 @@ body {
     object-fit: cover;
     z-index: -1;
     pointer-events: none;
+    /* Improve video quality and sharpness */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: scale(1.1);
+    filter: contrast(1.1) brightness(1.05) saturate(1.1);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
 }
 
 /* Splash Screen - Video Background */
