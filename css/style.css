@@ -246,9 +246,17 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 15px;
     max-width: 100%;
+}
+
+.welcome-header-image video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 /* Mobile optimizations for welcome image */
