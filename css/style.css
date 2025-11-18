@@ -627,34 +627,20 @@ body {
     justify-content: center;
 }
 
-/* T-Shirt Shape */
+/* T-Shirt Shape - Using actual images now */
 .merch-mockup.t-shirt .merch-image-wrapper {
-    clip-path: polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%);
-    background: #1a1a1a;
+    clip-path: none;
+    background: transparent;
     position: relative;
+    border-radius: 10px;
 }
 
 .merch-mockup.t-shirt .merch-image-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 15%;
-    right: 15%;
-    height: 20%;
-    background: #1a1a1a;
-    z-index: 2;
-    border-radius: 50% 50% 0 0;
+    display: none;
 }
 
 .merch-mockup.t-shirt .merch-image-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.3) 80%, transparent 80%);
-    z-index: 1;
+    display: none;
 }
 
 /* Crop Top Shape */
@@ -683,35 +669,20 @@ body {
     transform: translateY(-5px);
 }
 
-/* Hoodie Shape */
+/* Hoodie Shape - Using actual images now */
 .merch-mockup.hoodie .merch-image-wrapper {
-    clip-path: polygon(12% 0%, 88% 0%, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0% 88%, 0% 12%);
-    background: #0f0f0f;
+    clip-path: none;
+    background: transparent;
     position: relative;
+    border-radius: 10px;
 }
 
 .merch-mockup.hoodie .merch-image-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 12%;
-    right: 12%;
-    height: 25%;
-    background: #0f0f0f;
-    z-index: 2;
-    border-radius: 50% 50% 0 0;
-    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.5);
+    display: none;
 }
 
 .merch-mockup.hoodie .merch-image-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 25%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0.2) 75%);
-    z-index: 1;
+    display: none;
 }
 
 .merch-design {
@@ -722,6 +693,35 @@ body {
     position: relative;
     z-index: 0;
     opacity: 0.9;
+}
+
+/* Hoodie with Logo Overlay */
+.hoodie-wrapper {
+    position: relative;
+}
+
+.merch-clothing {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.merch-logo-overlay {
+    width: 60%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 0.95;
+    mix-blend-mode: normal;
 }
 
 .merch-title {
