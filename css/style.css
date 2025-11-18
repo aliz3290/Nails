@@ -673,14 +673,14 @@ body {
 }
 
 .merch-mockup.t-shirt.crop {
-    border: none;
-    box-shadow: none;
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
 }
 
 .merch-mockup.t-shirt.crop:hover {
-    border: none;
-    box-shadow: none;
-    transform: none;
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+    transform: translateY(-5px);
 }
 
 /* Hoodie Shape */
