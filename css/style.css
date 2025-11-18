@@ -751,6 +751,14 @@ body {
     text-shadow: 0 0 10px var(--neon-pink);
 }
 
+/* Hat Style */
+.merch-mockup.hat .merch-image-wrapper {
+    clip-path: none;
+    background: transparent;
+    position: relative;
+    border-radius: 10px;
+}
+
 /* Mobile Merch Styles */
 @media (max-width: 768px) {
     .merch-section {
