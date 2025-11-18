@@ -232,8 +232,10 @@ body {
 
 .main-content {
     display: block;
-    background: var(--dark-bg);
+    background: transparent;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 /* Welcome Section */
