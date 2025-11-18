@@ -399,12 +399,14 @@ body {
 }
 
 .intro-box {
-    background: var(--white);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
     border: 2px dashed var(--neon-red);
     padding: 20px;
     border-radius: 8px;
-    color: var(--darker-bg);
+    color: var(--white);
     line-height: 1.8;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* Services Section */
@@ -453,10 +455,11 @@ body {
 }
 
 .service-description {
-    color: var(--text-light);
+    color: var(--white);
     margin-bottom: 20px;
     line-height: 1.6;
     font-size: 0.95rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .pricing-grid {
@@ -502,6 +505,7 @@ body {
     color: var(--neon-red);
     font-weight: 900;
     font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 0, 0, 0.8);
 }
 
 .service-box.featured .pricing-price-large {
