@@ -660,11 +660,27 @@ body {
 /* Crop Top Shape */
 .merch-mockup.t-shirt.crop .merch-image-wrapper {
     height: 220px;
-    clip-path: polygon(15% 0%, 85% 0%, 100% 15%, 100% 100%, 85% 100%, 15% 100%, 0% 100%, 0% 15%);
+    clip-path: none;
+    border-radius: 10px;
 }
 
 .merch-mockup.t-shirt.crop .merch-image-wrapper::before {
-    height: 18%;
+    display: none;
+}
+
+.merch-mockup.t-shirt.crop .merch-image-wrapper::after {
+    display: none;
+}
+
+.merch-mockup.t-shirt.crop {
+    border: none;
+    box-shadow: none;
+}
+
+.merch-mockup.t-shirt.crop:hover {
+    border: none;
+    box-shadow: none;
+    transform: none;
 }
 
 /* Hoodie Shape */
