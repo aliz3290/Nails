@@ -21,9 +21,7 @@
         <!-- Welcome Section -->
         <section id="home" class="welcome-section">
             <div class="welcome-header">
-                <h1 class="welcome-title">WELCOME TO</h1>
-                <h2 class="brand-title">NAILS BY ELYANNA</h2>
-                <div class="star-bg"></div>
+                <img src="bff0d6ea-8ceb-411f-820f-58648de54e72.png" alt="Welcome to Nails by Elyanna" class="welcome-header-image">
             </div>
             <button class="get-to-know-btn">GET TO KNOW ME:</button>
             <div class="intro-box">
@@ -145,17 +143,20 @@
                     <label for="message">Additional Notes</label>
                     <textarea id="message" name="message" rows="4" placeholder="Any special requests or notes..."></textarea>
                 </div>
-                <div class="form-group">
-                    <label>Deposit Required *</label>
-                    <div class="deposit-info">
-                        <p class="deposit-amount">$25 deposit required to secure your appointment</p>
+                <!-- Stripe Payment Section - Hidden for now -->
+                <div style="display: none;">
+                    <div class="form-group">
+                        <label>Deposit Required *</label>
+                        <div class="deposit-info">
+                            <p class="deposit-amount">$25 deposit required to secure your appointment</p>
+                        </div>
                     </div>
+                    <div id="card-element" class="card-element">
+                        <!-- Stripe Elements will create form elements here -->
+                    </div>
+                    <div id="card-errors" class="card-errors" role="alert"></div>
                 </div>
-                <div id="card-element" class="card-element">
-                    <!-- Stripe Elements will create form elements here -->
-                </div>
-                <div id="card-errors" class="card-errors" role="alert"></div>
-                <button type="submit" class="btn-submit" id="submit-btn">PAY DEPOSIT & BOOK APPOINTMENT</button>
+                <button type="submit" class="btn-submit" id="submit-btn">SUBMIT BOOKING</button>
             </form>
             <div id="bookingMessage" class="booking-message"></div>
         </section>
