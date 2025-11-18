@@ -100,7 +100,7 @@
                     <div class="merch-item">
                         <div class="merch-mockup t-shirt">
                             <div class="merch-image-wrapper">
-                                <img src="tshirt.png" alt="Nails by Elyanna T-Shirt" class="merch-design" onerror="this.onerror=null; this.src='bff0d6ea-8ceb-411f-820f-58648de54e72.png';">
+                                <img src="bff0d6ea-8ceb-411f-820f-58648de54e72.png" alt="Nails by Elyanna T-Shirt" class="merch-design" id="tshirt-img">
                             </div>
                             <h3 class="merch-title">Classic T-Shirt</h3>
                             <p class="merch-price">$35</p>
@@ -109,7 +109,7 @@
                     <div class="merch-item">
                         <div class="merch-mockup hoodie">
                             <div class="merch-image-wrapper hoodie-wrapper">
-                                <img src="hoodie.png" alt="Hoodie Base" class="merch-clothing" onerror="this.onerror=null; this.src='bff0d6ea-8ceb-411f-820f-58648de54e72.png';">
+                                <img src="bff0d6ea-8ceb-411f-820f-58648de54e72.png" alt="Hoodie Base" class="merch-clothing" id="hoodie-img">
                                 <img src="bff0d6ea-8ceb-411f-820f-58648de54e72.png" alt="Nails by Elyanna Logo" class="merch-logo-overlay">
                             </div>
                             <h3 class="merch-title">Premium Hoodie</h3>
@@ -128,7 +128,7 @@
                     <div class="merch-item">
                         <div class="merch-mockup t-shirt">
                             <div class="merch-image-wrapper">
-                                <img src="tshirt-vintage.png" alt="Nails by Elyanna Vintage T-Shirt" class="merch-design" onerror="this.onerror=null; this.src='bff0d6ea-8ceb-411f-820f-58648de54e72.png';">
+                                <img src="bff0d6ea-8ceb-411f-820f-58648de54e72.png" alt="Nails by Elyanna Vintage T-Shirt" class="merch-design" id="vintage-img">
                             </div>
                             <h3 class="merch-title">Vintage Tee</h3>
                             <p class="merch-price">$35</p>
@@ -241,6 +241,35 @@
     <script src="js/gallery.js"></script>
     <script src="js/calendar-popup.js"></script>
     <script src="js/booking.js"></script>
+    <script>
+        // Try to load actual clothing images, fallback to logo if they don't exist
+        document.addEventListener('DOMContentLoaded', function() {
+            const tshirtImg = document.getElementById('tshirt-img');
+            const hoodieImg = document.getElementById('hoodie-img');
+            const vintageImg = document.getElementById('vintage-img');
+            
+            if (tshirtImg) {
+                const testImg = new Image();
+                testImg.onload = function() { tshirtImg.src = 'tshirt.png'; };
+                testImg.onerror = function() { /* Keep logo */ };
+                testImg.src = 'tshirt.png';
+            }
+            
+            if (hoodieImg) {
+                const testImg = new Image();
+                testImg.onload = function() { hoodieImg.src = 'hoodie.png'; };
+                testImg.onerror = function() { /* Keep logo */ };
+                testImg.src = 'hoodie.png';
+            }
+            
+            if (vintageImg) {
+                const testImg = new Image();
+                testImg.onload = function() { vintageImg.src = 'tshirt-vintage.png'; };
+                testImg.onerror = function() { /* Keep logo */ };
+                testImg.src = 'tshirt-vintage.png';
+            }
+        });
+    </script>
 </body>
 </html>
 
