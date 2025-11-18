@@ -422,10 +422,12 @@ body {
     margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
 .service-box {
-    background: var(--darker-bg);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
     border: 2px solid var(--neon-red);
     border-radius: 12px;
     padding: 20px;
@@ -794,9 +796,10 @@ body {
 
 .section-subtitle {
     text-align: center;
-    color: var(--text-light);
+    color: var(--white);
     margin-bottom: 25px;
     font-size: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .gallery-grid {
