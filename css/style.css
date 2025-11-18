@@ -678,20 +678,12 @@ body {
     transform: translateY(-5px);
 }
 
-/* Hoodie Shape - Using actual images now */
+/* Hoodie - Using actual images now */
 .merch-mockup.hoodie .merch-image-wrapper {
     clip-path: none;
     background: transparent;
     position: relative;
     border-radius: 10px;
-}
-
-.merch-mockup.hoodie .merch-image-wrapper::before {
-    display: none;
-}
-
-.merch-mockup.hoodie .merch-image-wrapper::after {
-    display: none;
 }
 
 .merch-design {
@@ -704,34 +696,6 @@ body {
     opacity: 0.9;
 }
 
-/* Hoodie with Logo Overlay */
-.hoodie-wrapper {
-    position: relative;
-}
-
-.merch-clothing {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.merch-logo-overlay {
-    width: 60%;
-    height: auto;
-    object-fit: contain;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    opacity: 0.95;
-    mix-blend-mode: normal;
-}
 
 .merch-title {
     font-size: 1.1rem;
