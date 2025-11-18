@@ -482,12 +482,14 @@ body {
     color: var(--white);
     font-weight: 500;
     font-size: 0.95rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .pricing-price {
     color: var(--neon-red);
     font-weight: 700;
     font-size: 1.1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 5px rgba(255, 0, 0, 0.6);
 }
 
 .pricing-single {
@@ -514,10 +516,11 @@ body {
 
 .rush-fee,
 .payment-note {
-    color: var(--text-light);
+    color: var(--white);
     font-size: 0.9rem;
     text-align: center;
     margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* How It Works Section */
@@ -855,7 +858,8 @@ body {
 }
 
 .booking-form {
-    background: var(--darker-bg);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
     border: 2px solid var(--neon-red);
     border-radius: 12px;
     padding: 25px;
