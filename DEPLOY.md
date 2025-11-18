@@ -1,3 +1,4 @@
+
 # Deploy to GitHub Pages
 
 ## Step 1: Push to GitHub
@@ -88,5 +89,6 @@ For production, set your Stripe keys as environment variables on your hosting pl
 - The backend server needs separate hosting
 - Update CORS settings in `server.js` to allow your GitHub Pages domain
 - Use HTTPS in production (required for Stripe)
+
 
 
