@@ -32,6 +32,19 @@ body {
     color: var(--white);
     overflow-x: hidden;
     background: var(--dark-bg);
+    position: relative;
+}
+
+/* Background Video */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* Splash Screen - Video Background */
@@ -226,7 +239,8 @@ body {
 /* Welcome Section */
 .welcome-section {
     padding: 40px 20px;
-    background: var(--darker-bg);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
     position: relative;
     overflow: hidden;
 }
@@ -396,7 +410,8 @@ body {
 /* Services Section */
 .services-section {
     padding: 40px 20px;
-    background: var(--dark-bg);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
 }
 
 .section-title {
@@ -567,13 +582,15 @@ body {
 /* Gallery Section */
 .gallery-section {
     padding: 40px 20px;
-    background: var(--dark-bg);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
 }
 
 /* Merch Section */
 .merch-section {
     padding: 40px 20px;
-    background: var(--darker-bg);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
     position: relative;
     overflow: hidden;
 }
@@ -616,7 +633,8 @@ body {
 }
 
 .merch-mockup {
-    background: var(--dark-bg);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
     border: 2px solid var(--neon-red);
     border-radius: 15px;
     padding: 20px;
@@ -714,6 +732,7 @@ body {
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 5px rgba(255, 0, 0, 0.6);
 }
 
 .merch-price {
@@ -721,7 +740,7 @@ body {
     font-weight: 800;
     color: var(--neon-red);
     text-align: center;
-    text-shadow: 0 0 10px var(--neon-red);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px var(--neon-red);
 }
 
 /* Hat Style */
@@ -824,7 +843,8 @@ body {
 /* Booking Section */
 .booking-section {
     padding: 40px 20px;
-    background: var(--dark-bg);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
 }
 
 .booking-form {
