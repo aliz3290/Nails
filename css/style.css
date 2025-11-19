@@ -34,14 +34,14 @@ body {
     background: var(--dark-bg);
     position: relative;
     /* Custom cursor */
-    cursor: url('Untitled design.png'), auto;
+    cursor: url('../Untitled design.png'), auto;
 }
 
 /* Custom cursor for interactive elements */
 a, button, input, select, textarea, .btn-submit, .enter-btn, .get-to-know-btn, 
 .merch-item, .gallery-item, .calendar-popup-day, .calendar-nav-btn,
 .calendar-confirm-btn, .calendar-cancel-btn, .calendar-close-btn {
-    cursor: url('Untitled design.png'), pointer;
+    cursor: url('../Untitled design.png'), pointer;
 }
 
 /* Background Video */
