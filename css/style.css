@@ -42,24 +42,24 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     z-index: -1;
     pointer-events: none;
     /* Improve video quality and sharpness */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    /* Upscale slightly and enhance */
-    transform: scale(1.05);
+    /* Zoom out to show more of the 4K video */
+    transform: scale(0.9);
     transform-origin: center center;
-    filter: contrast(1.15) brightness(1.08) saturate(1.15);
-    -webkit-filter: contrast(1.15) brightness(1.08) saturate(1.15);
+    filter: contrast(1.1) brightness(1.05) saturate(1.1);
+    -webkit-filter: contrast(1.1) brightness(1.05) saturate(1.1);
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform-style: preserve-3d;
     /* Force hardware acceleration */
-    -webkit-transform: translateZ(0) scale(1.05);
-    transform: translateZ(0) scale(1.05);
+    -webkit-transform: translateZ(0) scale(0.9);
+    transform: translateZ(0) scale(0.9);
     /* Better video rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
