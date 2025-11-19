@@ -15,15 +15,15 @@
 }
 
 :root {
-    --neon-red: #ff0000;
-    --neon-red-bright: #ff3333;
-    --neon-red-dark: #cc0000;
+    --neon-red: #cc0000;
+    --neon-red-bright: #e60000;
+    --neon-red-dark: #990000;
     --dark-bg: #0a0a0a;
     --darker-bg: #000000;
     --white: #ffffff;
     --text-light: rgba(255, 255, 255, 0.8);
-    --neon-glow: 0 0 20px rgba(255, 0, 0, 0.6);
-    --neon-glow-bright: 0 0 30px rgba(255, 0, 0, 0.8);
+    --neon-glow: 0 0 20px rgba(204, 0, 0, 0.6);
+    --neon-glow-bright: 0 0 30px rgba(204, 0, 0, 0.8);
 }
 
 body {
@@ -516,7 +516,7 @@ body {
     color: var(--neon-red);
     font-weight: 700;
     font-size: 1.1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 5px rgba(255, 0, 0, 0.6);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 3px rgba(204, 0, 0, 0.4);
 }
 
 .pricing-single {
@@ -534,7 +534,7 @@ body {
     color: var(--neon-red);
     font-weight: 900;
     font-size: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 5px rgba(204, 0, 0, 0.5);
 }
 
 .service-box.featured .pricing-price-large {
